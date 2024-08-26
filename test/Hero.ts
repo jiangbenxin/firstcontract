@@ -24,7 +24,7 @@ describe('Hero', () => {
         let e: any;
         try {
             await hero.createHero(0, {
-                value: ethers.parseEther("0.0599")
+                value: ethers.parseEther("0.0499")
             })
         } catch (_e) {
             e = _e
@@ -34,13 +34,13 @@ describe('Hero', () => {
 
     it("should generate right stats value", async function () {
         const hero: any = await createHero();
+        await hero.setRandom(69);
         await hero.createHero(0, {
             value: ethers.parseEther("0.05")
         })
-        await hero.setRandom(69);
         const h = (await hero.getHeroes())[0];
         expect(await hero.getDex(h)).to.equal(16)
         expect(await hero.getHealth(h)).to.equal(2)
-        expect(await hero.getStrenght(h)).to.equal(6)
+        expect(await hero.getStrength(h)).to.equal(6)
     })
 })
