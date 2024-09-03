@@ -4,17 +4,20 @@ pragma solidity ^0.8.24;
 
 import "hardhat/console.sol";
 import "./Storage.sol";
+
 contract A {
     // uint a;
     function setA(uint _a) public {
         Appstorage storage s = Storage.get();
         s.a = _a;
     }
+
     function getA() public view returns (uint) {
         Appstorage storage s = Storage.get();
         return s.a;
     }
 }
+
 contract B {
     // address ContractA;
     // uint a;
@@ -29,6 +32,7 @@ contract B {
         s.d = 0xF5;
         s.ContractA = _ContractA;
     }
+
     function setB(uint _a) public {
         Appstorage storage s = Storage.get();
         s.a = _a;

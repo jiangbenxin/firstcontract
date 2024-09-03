@@ -39,7 +39,7 @@ async function getContract() {
     getCount()
     contract.on(contract.filters.CounterInc(), async function ({ args }) {
         console.log(args);
-        counterdiv.innerHTML = args[0].toString() || await contract.getCount()
+        // counterdiv.innerHTML = args[0].toString() || await contract.getCount()
     })
     const btn = document.createElement('button')
     btn.innerText = 'test'
