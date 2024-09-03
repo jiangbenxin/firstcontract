@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.24;
 
 import "hardhat/console.sol";
@@ -36,8 +35,7 @@ contract B {
     function setB(uint _a) public {
         Appstorage storage s = Storage.get();
         s.a = _a;
-        s.ContractA.delegatecall(
-            abi.encodeWithSignature("setA(uint256)", _a + 1)
+        s.ContractA.delegatecall( abi.encodeWithSignature("setA(uint256)", _a + 1)
         );
     }
 
